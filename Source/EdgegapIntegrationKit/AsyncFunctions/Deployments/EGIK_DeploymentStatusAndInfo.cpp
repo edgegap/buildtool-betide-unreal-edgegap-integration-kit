@@ -18,7 +18,7 @@ void UEGIK_DeploymentStatusAndInfo::Activate()
 	Request->SetVerb("GET");
 	Request->SetURL("https://api.edgegap.com/v1/status/" + Var_RequestId);
 	Request->SetHeader("Content-Type", "application/json");
-	Request->SetHeader("Authorization", "token YOUR_EDGEGAP_API_TOKEN");
+	Request->SetHeader("Authorization", UEGIKBlueprintFunctionLibrary::GetAuthorizationKey());
 	Request->OnProcessRequestComplete().BindUObject(this, &UEGIK_DeploymentStatusAndInfo::OnResponseReceived);
 	if(!Request->ProcessRequest())
 	{

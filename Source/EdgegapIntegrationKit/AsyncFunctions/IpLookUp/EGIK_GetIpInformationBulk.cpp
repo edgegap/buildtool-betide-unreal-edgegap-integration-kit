@@ -64,7 +64,7 @@ void UEGIK_GetIpInformationBulk::Activate()
 	Request->SetVerb("POST");
 	Request->SetURL("https://api.edgegap.com/v1/ips/lookup");
 	Request->SetHeader("Content-Type", "application/json");
-	Request->SetHeader("Authorization", "token YOUR_EDGEGAP_API_TOKEN");
+	Request->SetHeader("Authorization", UEGIKBlueprintFunctionLibrary::GetAuthorizationKey());
 	TSharedPtr<FJsonObject> JsonObject = MakeShareable(new FJsonObject);
 	TArray<TSharedPtr<FJsonValue>> IpAddressesArray;
 	for (auto val : Var_IpAddresses)

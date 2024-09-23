@@ -56,7 +56,7 @@ void UEGIK_DeleteDeployment::Activate()
 	Request->SetVerb("DELETE");
 	Request->SetURL("https://api.edgegap.com/v1/stop/" + Var_bRequestId);
 	Request->SetHeader("Content-Type", "application/json");
-	Request->SetHeader("Authorization", "token YOUR_EDGEGAP_API_TOKEN");
+	Request->SetHeader("Authorization", UEGIKBlueprintFunctionLibrary::GetAuthorizationKey());
 	Request->OnProcessRequestComplete().BindUObject(this, &UEGIK_DeleteDeployment::OnResponseReceived);
 	if (!Request->ProcessRequest())
 	{

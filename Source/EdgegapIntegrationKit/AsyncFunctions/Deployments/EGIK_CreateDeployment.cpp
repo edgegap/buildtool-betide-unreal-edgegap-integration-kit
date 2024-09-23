@@ -53,7 +53,7 @@ void UEGIK_CreateDeployment::Activate()
 	Request->SetVerb("POST");
 	Request->SetURL("https://api.edgegap.com/v1/deploy");
 	Request->SetHeader("Content-Type", "application/json");
-	Request->SetHeader("Authorization", "token YOUR_EDGEGAP_API_TOKEN");
+	Request->SetHeader("Authorization", UEGIKBlueprintFunctionLibrary::GetAuthorizationKey());
 	TSharedPtr<FJsonObject> JsonObject = MakeShareable(new FJsonObject);
 	JsonObject->SetStringField("app_name", Var_DeploymentStruct.AppName);
 	JsonObject->SetStringField("version_name", Var_DeploymentStruct.VersionName);
